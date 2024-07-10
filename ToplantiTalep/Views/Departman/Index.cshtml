@@ -1,0 +1,33 @@
+﻿@using ToplantiTalep.Models
+@using ToplantiTalep.DataAccess.Concrete
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+
+<table class="table table-bordered">
+    <tr>
+        <th>Departman ID</th>
+        <th>Departman Adı</th>
+        <th>Ad</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.DepartmanID</td>
+            <td>@item.DepartmanAd</td>
+            <td><a href="/AdminDepartman/DeleteDepartman/@item.DepartmanID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/AdminDepartman/EditDepartman/@item.DepartmanID" class="btn btn-info">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<br />
+@*<a href="/AdminDepartman/AddDepartman" class="btn btn-info">Yeni Departman</a>*@
